@@ -1,2 +1,2 @@
-# cosmoshub-legacy-docker
-docker for cosmos hub 1,2,3 
+# bitcoin-prometheus-docker
+promethues-docker for bitcoin
