@@ -38,9 +38,6 @@ var (
 	bitcoinHashPS = make(map[int]prometheus.Gauge)
 	bitcoinEstSmartFee = make(map[int]prometheus.Gauge)
 
-	// Add other metrics as per the Python code
-	// ...
-
 	retryExceptions = []string{
 		"btcrpcclient.InWarmupError",
 		"btcrpcclient.JSONRPCError",
