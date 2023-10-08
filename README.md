@@ -1,2 +1,2 @@
-# bitcoin-prometheus-docker
+# bitcoin-prometheus
 promethues-docker for bitcoin
