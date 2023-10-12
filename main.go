@@ -20,7 +20,7 @@ func main() {
 			return
 		}
 
-	    url := "http://127.0.0.1:8332"
+	    url := "http://auth:auth@0.0.0.0:8332"
 
 		payload := []byte(`{"jsonrpc": "1.0", "id": "curltest", "method": "getblockcount", "params": []}`)
 
