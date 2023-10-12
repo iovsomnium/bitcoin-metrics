@@ -1,2 +1,2 @@
-# bitcoin-prometheus
-promethues for bitcoin
+# bitcoin-metrics
+metrics for bitcoin
