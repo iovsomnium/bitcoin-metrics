@@ -1,2 +1,2 @@
-# bitcoin-metrics
-metrics for bitcoin
+# blockchain-node-metrics
+metrics for blockchain
