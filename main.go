@@ -5,12 +5,13 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"strconv"
 )
 
 type Response struct {
-	Result int         `json:"result"`
-	Error  interface{} `json:"error"`
-	ID     string      `json:"id"`
+	JsonRpc string    `json:"jsonrpc"`
+	Id      int       `json:"id"`
+	Result  string    `json:"result"`
 }
 
 func main() {
@@ -20,9 +21,9 @@ func main() {
 			return
 		}
 
-	    url := "http://auth:auth@0.0.0.0:8332"
+	    url := "http://0.0.0.0:8545"
 
-		payload := []byte(`{"jsonrpc": "1.0", "id": "curltest", "method": "getblockcount", "params": []}`)
+		payload := []byte(`{ "jsonrpc":"2.0", "method":"eth_blockNumber","params":[],"id":1}`)
 
 		resp, err := http.Post(url, "application/json", bytes.NewBuffer(payload))
 		if err != nil {
@@ -39,8 +40,13 @@ func main() {
 			return
 		}
 
-		result := responseData.Result
-		fmt.Fprintf(w, "bitcoin_latest_block_height %d\n", result)
+		result, err := strconv.ParseInt(responseData.Result, 0, 0)
+		if err != nil {
+			fmt.Println("Error:", err)
+			return
+		}
+		
+		fmt.Fprintf(w, "mantle_latest_block_height %d\n", result)
 	})
 
 	fmt.Println("Server listening on port 8991 for GET requests...")
